@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_jate_1.0" default="compile.module.jate_1.0">
+  <dirname property="module.jate_1.0.basedir" file="${ant.file.module_jate_1.0}"/>
+  
+  <property name="module.jdk.home.jate_1.0" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.jate_1.0" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.jate_1.0" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.jate_1.0" value="${compiler.args}"/>
+  
+  <property name="jate_1.0.output.dir" value="${module.jate_1.0.basedir}/out/production/Jate_1.0"/>
+  <property name="jate_1.0.testoutput.dir" value="${module.jate_1.0.basedir}/out/test/Jate_1.0"/>
+  
+  <path id="jate_1.0.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="jate_1.0.module.production.classpath">
+    <path refid="${module.jdk.classpath.jate_1.0}"/>
+    <pathelement location="${basedir}/libs/wit-commons/wit-commons.jar"/>
+    <pathelement location="${basedir}/libs/apache-log4j-1.2.15/log4j-1.2.15.jar"/>
+    <path refid="library.apache-opennlp-1.51.classpath"/>
+    <pathelement location="${basedir}/libs/dragon/dragontool.jar"/>
+    <path refid="library.hsqldb2.2.3.classpath"/>
+  </path>
+  
+  <path id="jate_1.0.runtime.production.module.classpath">
+    <pathelement location="${jate_1.0.output.dir}"/>
+    <pathelement location="${basedir}/libs/wit-commons/wit-commons.jar"/>
+    <pathelement location="${basedir}/libs/apache-log4j-1.2.15/log4j-1.2.15.jar"/>
+    <path refid="library.apache-opennlp-1.51.classpath"/>
+    <pathelement location="${basedir}/libs/dragon/dragontool.jar"/>
+    <path refid="library.hsqldb2.2.3.classpath"/>
+  </path>
+  
+  <path id="jate_1.0.module.classpath">
+    <path refid="${module.jdk.classpath.jate_1.0}"/>
+    <pathelement location="${jate_1.0.output.dir}"/>
+    <pathelement location="${basedir}/libs/wit-commons/wit-commons.jar"/>
+    <pathelement location="${basedir}/libs/apache-log4j-1.2.15/log4j-1.2.15.jar"/>
+    <path refid="library.apache-opennlp-1.51.classpath"/>
+    <pathelement location="${basedir}/libs/dragon/dragontool.jar"/>
+    <path refid="library.hsqldb2.2.3.classpath"/>
+  </path>
+  
+  <path id="jate_1.0.runtime.module.classpath">
+    <pathelement location="${jate_1.0.testoutput.dir}"/>
+    <pathelement location="${jate_1.0.output.dir}"/>
+    <pathelement location="${basedir}/libs/wit-commons/wit-commons.jar"/>
+    <pathelement location="${basedir}/libs/apache-log4j-1.2.15/log4j-1.2.15.jar"/>
+    <path refid="library.apache-opennlp-1.51.classpath"/>
+    <pathelement location="${basedir}/libs/dragon/dragontool.jar"/>
+    <path refid="library.hsqldb2.2.3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.jate_1.0">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.jate_1.0">
+    <patternset refid="excluded.from.module.jate_1.0"/>
+  </patternset>
+  
+  <path id="jate_1.0.module.sourcepath">
+    <dirset dir="${module.jate_1.0.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.jate_1.0" depends="compile.module.jate_1.0.production,compile.module.jate_1.0.tests" description="Compile module Jate_1.0"/>
+  
+  <target name="compile.module.jate_1.0.production" depends="register.custom.compilers" description="Compile module Jate_1.0; production classes">
+    <mkdir dir="${jate_1.0.output.dir}"/>
+    <javac2 destdir="${jate_1.0.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jate_1.0}/javac">
+      <compilerarg line="${compiler.args.jate_1.0}"/>
+      <bootclasspath refid="jate_1.0.module.bootclasspath"/>
+      <classpath refid="jate_1.0.module.production.classpath"/>
+      <src refid="jate_1.0.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jate_1.0"/>
+    </javac2>
+    
+    <copy todir="${jate_1.0.output.dir}">
+      <fileset dir="${module.jate_1.0.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.jate_1.0.tests" depends="register.custom.compilers,compile.module.jate_1.0.production" description="compile module Jate_1.0; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.jate_1.0" description="cleanup module">
+    <delete dir="${jate_1.0.output.dir}"/>
+    <delete dir="${jate_1.0.testoutput.dir}"/>
+  </target>
+</project>
