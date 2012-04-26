@@ -2,7 +2,7 @@ User Guide for JATE
 
 = Introduction =
 This guide introduces how to use JATE to:
-  * extract terms from corpus using pre-implemented algorithms. See [JATEIntro#Extracting_terms_using_JATE].
+  * extract terms from corpus using pre-implemented algorithms. See [JATEIntro#Extracting_terms_using_JATE|Extracting terms using Jate].
   * extend JATE by implementing your own algorithms
 
 Add your content here.
