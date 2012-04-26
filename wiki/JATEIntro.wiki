@@ -187,8 +187,11 @@ public static void main(String[] args) {
 }}}
 
   * The output
-JATE will generate two types of output in the output folder provided by you. 
-  # For each algorithm, a ".txt" file named after the algorithm. The file lists one term canonical form per line, in the following form: "term | var1 | var2      1.1", where "term" is the canonical term form; "var1 | var2" are various forms of the term found in the corpus; "1.1" is the score given by the algorithm.
+JATE will generate output in the output folder provided by you. For each algorithm, a ".txt" file named after the algorithm. The file lists one term canonical form per line, in the following form: 
+
+"term | var1 | var2      1.1"
+
+where "term" is the canonical term form; "var1 | var2" are various forms of the term found in the corpus; "1.1" is the score given by the algorithm.
 
 
 = Implementing new algorithms =
