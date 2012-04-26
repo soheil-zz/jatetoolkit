@@ -31,6 +31,10 @@ Currently JATEv1.1 has implemented 8 algorithms listed below:
 
 = Extracting terms using JATE =
 
+*Before running a test, make sure you reset the configurations in the jate.properties file in your class path.*
+
+
+
 The "main" method in the testing class "uk.ac.shef.dcs.oak.jate.test.AlgorithmTester" contains explanations of how to use existing JATE algorithms for ATE/ATR. The code of this method is copied below, provided with more detailed explanations:
 {{{
 public static void main(String[] args) {
@@ -175,9 +179,11 @@ public static void main(String[] args) {
 }}}
 
 
-
 = Implementing new algorithms =
 
 *If you haven't learnt how to use pre-implemented algorithms in JATE for ATE/ATR please read the previous section*. It explains the basic principles of ATE/ATR adopted in JATE and is essential to understanding how to build your own algorithms.
 
-
+As mentioned above, ATE/ATR in JATE depends on three components:
+  # Extracting candidate terms from documents in a corpus and index them;
+  # Build statistical features of candidate terms required by an algorithm;
+  # Execute the algorithm with the features, which computes a score for each candidate term and rank them.
