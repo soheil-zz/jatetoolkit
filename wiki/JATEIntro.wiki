@@ -31,9 +31,8 @@ Currently JATEv1.1 has implemented 8 algorithms listed below:
 
 = Extracting terms using JATE =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+The "main" method in the testing class "uk.ac.shef.dcs.oak.jate.test.AlgorithmTester" contains detailed explanations of how to use existing JATE algorithms for ATE/ATR. Please refer to this class for details.
+
+
 
 = Implementing new algorithms =
