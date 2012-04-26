@@ -37,7 +37,13 @@ Currently JATEv1.1 has implemented 8 algorithms listed below:
 The "main" method in the testing class "uk.ac.shef.dcs.oak.jate.test.AlgorithmTester" contains explanations of how to use existing JATE algorithms for ATE/ATR. The code of this method is copied below, provided with more detailed explanations:
 {{{
 public static void main(String[] args) {
+   //[corpus_path]: input folder containing documents (raw text) you want to process
+   //[reference_corpus_path]: required *only* by some algorithms (GlossEx, Weirdness and TermEx). Point to a single file that contains
+   //              frequency statistics of words found in a reference corpus. For the requirement format, see an example in the distribution:
+   //              "nlp_resources/bnc_unifrqs.normal".
+   //[output_folder]: where you want the output to be written to.
    if (args.length < 3) System.out.println("Usage: java AlgorithmTester [corpus_path] [reference_corpus_path] [output_folder]");
+   
    else {
       try {
          System.out.println(new Date());
@@ -104,6 +110,9 @@ public static void main(String[] args) {
          // implemented. The first set contains classes named as "FeatureBuilderXYZMultiThread", which splits the corpus
          // into segments and run several threads are run in parallel then aggregate results; the second set contain
          // classes named as "FeatureBuilderXYZ" which are the single threaded options. 
+         //Also note that counting in JATE is case-sensitive: JATE creats a one-to-many mapping from canonical term forms to
+         // variants found in a corpus. When counting, each variant is searched in the corpus, and the frequency adds up to a sum
+         // as the total frequency for the canonical form. Scoring and ranking are based on the canonical forms also. 
 
          /* Option 1: Due to use of multi-threading, this can significantly occupy your CPU and memory resources. It is
             better to use this way on dedicated server machines, and only for very large corpus.
@@ -178,6 +187,8 @@ public static void main(String[] args) {
 }}}
 
   * The output
+JATE will generate two types of output in the output folder provided by you. 
+  # For each algorithm, a ".txt" file named after the algorithm. The file lists one term canonical form per line, in the following form: "term | var1 | var2      1.1", where "term" is the canonical term form; "var1 | var2" are various forms of the term found in the corpus; "1.1" is the score given by the algorithm.
 
 
 = Implementing new algorithms =
