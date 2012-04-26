@@ -31,7 +31,8 @@ Currently JATEv1.1 has implemented 8 algorithms listed below:
 
 = Extracting terms using JATE =
 
-*Before running a test, make sure you reset the configurations in the jate.properties file in your class path.*
+  # Configuration
+    *Before running a test, make sure you reset the configurations in the jate.properties file in your class path.*
 
 
 
