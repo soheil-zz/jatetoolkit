@@ -32,10 +32,8 @@ Currently JATEv1.1 has implemented 8 algorithms listed below:
 = Extracting terms using JATE =
 
   # Configuration
-    *Before running a test, make sure you reset the configurations in the jate.properties file in your class path.*
-
-
-
+*Before running a test, make sure you reset the configurations in the jate.properties file in your class path*. There are a couple of properties that point particular folders in the JATE distribution. Make sure they are valid on your file system.
+  # An example: uk.ac.shef.dcs.oak.jate.test.AlgorithmTester
 The "main" method in the testing class "uk.ac.shef.dcs.oak.jate.test.AlgorithmTester" contains explanations of how to use existing JATE algorithms for ATE/ATR. The code of this method is copied below, provided with more detailed explanations:
 {{{
 public static void main(String[] args) {
