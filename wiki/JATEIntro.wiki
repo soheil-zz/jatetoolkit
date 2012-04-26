@@ -210,3 +210,6 @@ If you need to extract candidate terms in different ways, create a new class tha
 
   * Build statistical features of candidate terms required by an algorithm
 If your algorithm requires new kinds of features that are not yet implemented, you need to develop new subclasses of *uk.ac.shef.dcs.oak.jate.core.feature.AbstractFeature* and corresponding feature builder classes that extends *uk.ac.shef.dcs.oak.jate.core.feature.AbstractFeatureBuilder*. Example implementations are available in that package.
+
+  * New algorithms
+Finally you need to implement new algorithms, and corresponding feature wrapper for your algorithm class. Your algorithm should be a subclass of *uk.ac.shef.dcs.oak.jate.core.algorithm.Algorithm* and your feature wrapper should be a subclass of "AbstractFeatureWrapper" in the same package. See existing implementations for examples.
