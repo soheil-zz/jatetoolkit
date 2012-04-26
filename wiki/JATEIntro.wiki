@@ -202,3 +202,13 @@ As mentioned above, ATE/ATR in JATE depends on three components:
   # Extracting candidate terms from documents in a corpus and index them;
   # Build statistical features of candidate terms required by an algorithm;
   # Execute the algorithm with the features, which computes a score for each candidate term and rank them.
+
+To implement your own algorithm, you also need to work on these components. Depending on your needs, you may find that you only need to extend some of these components. Here are some general guidelines:
+
+  * Extracting candidate terms from documents in a corpus and index them
+If you need to extract candidate terms in different ways, create a new class that extends uk.ac.shef.dcs.oak.jate.core.npextractor.CandidateTermExtractor and use it in your program. You may find example implementations in the following three classes: NGramExtractor, NounPhraseExtractorOpenNLP, WordExtractor.
+
+
+
+  # Build statistical features of candidate terms required by an algorithm;
+  # Execute the algorithm with the features, which computes a score for each candidate term and rank them.
