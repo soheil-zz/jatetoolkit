@@ -177,3 +177,7 @@ public static void main(String[] args) {
 
 
 = Implementing new algorithms =
+
+*If you haven't learnt how to use pre-implemented algorithms in JATE for ATE/ATR please read the previous section*. It explains the basic principles of ATE/ATR adopted in JATE and is essential to understanding how to build your own algorithms.
+
+
