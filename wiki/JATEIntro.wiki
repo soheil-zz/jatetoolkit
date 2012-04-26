@@ -3,9 +3,31 @@ User Guide for JATE
 = Introduction =
 This guide introduces how to use JATE to:
   * extract terms from corpus using pre-implemented algorithms. See [JATEIntro#Extracting_terms_using_JATE Extracting terms using Jate].
-  * extend JATE by implementing your own algorithms
+  * extend JATE by implementing your own algorithms. See [JATEIntro#Implementing_new_algorithms Implementing new algorithms].
 
-Add your content here.
+JATE (Java Automatic Term Extraction) is a toolkit implemented for developing and experimenting Automatic Term Extractions/Recognition algorithms in Java. The motivation of this toolkit is to make available several state-of-the-art algorithms of ATE/ATR to both researchers and practitioners, and encourage developers of ATE/ATR methods to develop their methods under a uniform framework to enable comparative studies.
+JATE is implemented based on the common ground of most ATE/ATR algorithms, which typically follows the steps as below:
+
+  * Extracting candidate terms from a corpus using linguistic tools
+  * Extracting statistical features of candidates based on the corpus
+  * Apply ATE/ATR algorithms to score the domain representativeness of candidate terms based on their statistical features. The scores give an indication of the likelihood of a candidate term being a good domain specific term.
+
+Following this, JATE can be divided into three main components:
+  * Classes and utilities for extracting candidate terms
+  * Classes for representing and building candidates’ features
+  * Classes implementing state-of-the-art algorithms using the features
+
+Currently JATEv1.1 has implemented 8 algorithms listed below:
+  * Simple term frequency – the score of a candidate term is simply the frequency of that candidate noted in the corpus
+  * TF.IDF – the score of a candidate term is the TF.IDF score of that candidate in the corpus
+  * Weirdness – see Ahmad et a.l, 1999, Surrey Participation in TREC8: Weirdness Indexing for Logical Document Extrapolation
+  * C-value – see Frantzi et al., 2000, Automatic recognition of multi-word terms:. the C-value/NC-value method
+  * GlossEx – see Kozakov, et al., 2004, Glossary extraction and utilization in the information search and delivery system for IBM Technical Support
+  * TermEx – see Sclano et al., 2007, TermExtractor: a Web application to learn the shared terminology of emergent web communities
+  * RIDF - Residual IDF, see Church, K. and Gale, W. 1995a. Inverse Document Frequency (IDF): A Measure of Deviation from Poisson. In Proceedings of the 3rd Workshop on Very Large Corpora. Cambridge, Massachusetts, USA, pp.121-30.
+  * Average Term Frequency in Corpus - calculated by dividing the total frequency of a term in a corpus by its document frequency.
+
+*Please note that we do not claim to have replicated each ATE/ATR method described in the reference*. We have made every effort to replicate the computation algorithm; however, you should expect to obtain slightly different results since we may have used different linguistic tools, and reference resources used by some algorithms. 
 
 
 = Extracting terms using JATE =
@@ -14,3 +36,5 @@ Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
+
+= Implementing new algorithms =
