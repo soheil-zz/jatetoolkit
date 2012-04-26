@@ -1,15 +1,14 @@
-User Guide for JATE
-
 = Introduction =
 This guide introduces how to use JATE to:
   * extract terms from corpus using pre-implemented algorithms. See [JATEIntro#Extracting_terms_using_JATE Extracting terms using Jate].
   * extend JATE by implementing your own algorithms. See [JATEIntro#Implementing_new_algorithms Implementing new algorithms].
 
-JATE (Java Automatic Term Extraction) is a toolkit implemented for developing and experimenting Automatic Term Extractions/Recognition algorithms in Java. The motivation of this toolkit is to make available several state-of-the-art algorithms of ATE/ATR to both researchers and practitioners, and encourage developers of ATE/ATR methods to develop their methods under a uniform framework to enable comparative studies.
+JATE (Java Automatic Term Extraction) is a toolkit for developing and experimenting Automatic Term Extractions/Recognition algorithms in Java. The motivation of this toolkit is to make available several state-of-the-art algorithms of ATE/ATR to developers and users of ATE/ATR, and encourage developers of ATE/ATR methods to develop their methods under a uniform framework to enable comparative studies.
+
 JATE is implemented based on the common ground of most ATE/ATR algorithms, which typically follows the steps as below:
 
   * Extracting candidate terms from a corpus using linguistic tools
-  * Extracting statistical features of candidates based on the corpus
+  * Extracting statistical features of candidates from the corpus
   * Apply ATE/ATR algorithms to score the domain representativeness of candidate terms based on their statistical features. The scores give an indication of the likelihood of a candidate term being a good domain specific term.
 
 Following this, JATE can be divided into three main components:
