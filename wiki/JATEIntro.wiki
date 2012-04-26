@@ -144,7 +144,15 @@ public static void main(String[] args) {
          //#         create an instance of the algorithm class,     #
          //#         and also an instance of its feature wrapper.   #
          //##########################################################
+
+
 	 AlgorithmTester tester = new AlgorithmTester();
+
+         //NOTE that each algorithm will need its own "FeatureWrapper" (in uk.ac.shef.dcs.oak.jate.core.algorithm)
+         //Each feature wrapper may require different kinds of "AbstractFeature". You can find details of these in
+         //the javadoc. The purpose of "FeatureWrapper" is to encapsulate the underlying feature (stores) and provide
+         //access to only the features required by the corresponding algorithm
+
  	 tester.registerAlgorithm(new TFIDFAlgorithm(), new TFIDFFeatureWrapper(termCorpusFreq));
 	 tester.registerAlgorithm(new GlossExAlgorithm(), new GlossExFeatureWrapper(termCorpusFreq, wordFreq, bncRef));
 	 tester.registerAlgorithm(new WeirdnessAlgorithm(), new WeirdnessFeatureWrapper(wordFreq, termCorpusFreq, bncRef));
